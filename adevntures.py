@@ -14,7 +14,7 @@ st.markdown(
     <style>
     body {
         background-color: #ffffff;  /* White background */
-        color: #ff0000;             /* Red text */
+        color: #000000;             /* Black text */
         font-family: Arial, sans-serif;
     }
     .st-bf {
@@ -26,10 +26,24 @@ st.markdown(
         padding: 10px;
     }
     .st-form-label {
-        color: #ff0000;
+        color: #000000;
     }
     .st-form-input {
-        border-color: #ff0000;
+        border-color: #000000;
+    }
+    .st-button {
+        background-color: #008000;  /* Green button background */
+        color: #ffffff;             /* White text on button */
+        border-color: #000000;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .st-button:hover {
+        background-color: #00a000;  /* Darker green on hover */
+    }
+    .st-success {
+        color: #008000;  /* Green success message */
     }
     </style>
     """,
@@ -51,3 +65,4 @@ if st.button("Register"):
     with open("customer_data.txt", "a") as f:
         f.write(f"Name: {name}\nGender: {gender}\nPhone Number: {phone_number}\nAge Range: {age_range}\n\n")
     st.success("Registration successful!")
+
