@@ -1,5 +1,12 @@
 import streamlit as st
 
+# Session state to track the current page
+page = st.session_state.get("page", "registration")
+
+# Registration page
+if page == "registration":
+    import streamlit as st
+
 # Set page configuration
 st.set_page_config(
     page_title="Customer Registration",
@@ -66,3 +73,25 @@ if st.button("Register"):
         f.write(f"Name: {name}\nGender: {gender}\nPhone Number: {phone_number}\nAge Range: {age_range}\n\n")
     st.success("Registration successful!")
 
+    # Navigation button
+    if st.sidebar.button("View Registered Users"):
+        st.session_state.page = "user_data"
+        st.experimental_rerun()
+
+# User data page
+elif page == "user_data":
+    st.set_page_config(page_title="Registered Users")
+
+    # Read user data from file
+    with open("customer_data.txt", "r") as f:
+        user_data = f.readlines()
+
+    # Display user data in a clear and informative way
+    for user in user_data:
+        st.write("---")  # Visual separator between users
+        st.write(user.strip())  # Remove trailing newline
+
+    # Navigation button (optional)
+    if st.sidebar.button("Back to Registration"):
+        st.session_state.page = "registration"
+        st.experimental_rerun()
