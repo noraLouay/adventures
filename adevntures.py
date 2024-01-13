@@ -14,7 +14,7 @@ def main():
 
     # Display the result
     st.write(f"The square of {user_input} is: {square_result}")
-
+    st.balloons()
 # Run the Streamlit app
 if __name__ == "__main__":
     main()
