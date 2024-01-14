@@ -35,8 +35,8 @@ def create_ad_page():
             st.info("Additional script execution complete!")
         except subprocess.CalledProcessError as e:
             st.error(f"Error running script: {e}")
-        
-        st.session_state.page = "profile"
+        st.session_state.page = "ad_display"
+        st.session_state.ad_image_path = f"ads/images/{uploaded_file.name}"  # Store image path
         st.experimental_rerun()
     if st.sidebar.button("Back to Profile"):
         st.session_state.page = "profile"
