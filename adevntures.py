@@ -1,10 +1,13 @@
-# main.py
-
 import streamlit as st
+from registration_page import registration_page
+from profile_page import profile_page
+from create_ad_page import create_ad_page
 
 page = st.session_state.get("page", "registration")
 
 if page == "registration":
-    import registration_page
-elif page == "user_data":
-    import user_data_page
+    registration_page()
+elif page == "profile":
+    profile_page()
+elif page == "create_ad":
+    create_ad_page()
